@@ -143,7 +143,7 @@ export abstract class Base extends EventEmitter {
 
   private getDockerComposeConfig(): DockerComposeV3 {
     return {
-      name: `dcdx-${this.name}`
+      name: `dcdx-${this.name}`,
       version: '3.8',
       services: {
         [this.name]: this.getService()
