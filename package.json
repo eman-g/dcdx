@@ -1,5 +1,5 @@
 {
-  "name": "dcdx",
+  "name": "dcdxv2",
   "version": "0.0.0-development",
   "author": "Collabsoft <info@collabsoft.net>",
   "description": "The Unofficial CLI for Atlassian Data Center Plugin Development",
@@ -14,7 +14,7 @@
     "package.json"
   ],
   "bin": {
-    "dcdx": "./lib/index.js"
+    "dcdxv2": "./lib/index.js"
   },
   "engines": {
     "node": ">=18"
