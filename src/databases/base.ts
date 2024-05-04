@@ -93,6 +93,7 @@ export abstract class Base extends EventEmitter implements DatabaseEngine {
 
   private getDockerComposeConfig(): DockerComposeV3 {
     return {
+      name: `dcdx-${this.name}`,
       version: '3.8',
       services: {
         'db': this.getService()
