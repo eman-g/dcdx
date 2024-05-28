@@ -2,8 +2,6 @@
 
 import { Option, program } from 'commander';
 import { asyncExitHook } from 'exit-hook';
-
-import versions from '../../../assets/versions.json';
 import { getApplicationByName } from '../../helpers/getApplication';
 import { SupportedApplications } from '../../types/SupportedApplications';
 
