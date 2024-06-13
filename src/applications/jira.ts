@@ -44,6 +44,13 @@ RUN chown -R jira:jira /var/atlassian/application-data/jira`
         `${this.options.port || 80}:8080`,
         ...this.options.debug ? [ '5005:5005' ] : [],
       ],
+      deploy: {
+        resources: {
+          limits: {
+            memory: '8G'
+          }
+        }
+      },
       environment: Object.keys(environment).length > 0 ? environment : undefined,
       volumes: volumes.length > 0 ? volumes : undefined,
       networks: [ 'shared' ]
@@ -68,6 +75,8 @@ RUN chown -R jira:jira /var/atlassian/application-data/jira`
 
     return {
       ...this.options.contextPath ? { 'ATL_TOMCAT_CONTEXTPATH': this.options.contextPath } : '',
+      'JVM_MINIMUM_MEMORY': 1024,
+      'JVM_MAXIMUM_MEMORY': 4096,
       'JVM_SUPPORT_RECOMMENDED_ARGS': this.getJVMArgs().join(' '),
       'ATL_LICENSE_KEY': this.options.license || timebomb.confluence,
       'ATL_JDBC_URL': this.database.url,
